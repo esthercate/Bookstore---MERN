@@ -10,7 +10,22 @@ const CreateBooks = () => {
   const [publishYear, setPublishYear] = useState('')
   const [loading, setLoading] = useState('')
   const navigate = useNavigate()
-
+  const handleSaveBook = () => {
+    const data = {
+      title,
+      author,
+      publishYear,
+    }
+    setLoading(true)
+    axios.get(`http://localhost:5000/books`, data).then(() => {
+      setLoading(false)
+      navigate('/')
+    })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false)
+    })
+ }
 
   return (
     <div>CreateBooks</div>

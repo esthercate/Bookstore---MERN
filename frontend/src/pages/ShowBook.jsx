@@ -14,7 +14,7 @@ const ShowBook = () => {
     axios
       .get(`http://localhost:5000/${id}`)
       .then((res) => {
-        setBook(res.data.data)
+        setBook(res.data)
         setLoading(false)
       })
       .catch((error) => {
